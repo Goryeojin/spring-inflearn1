@@ -16,11 +16,13 @@ class MemberServiceTest {
 
     MemberService memberService;
     MemoryMemberRepository memberRepository;
+
     @BeforeEach
     public void beforeEach() {
         memberRepository = new MemoryMemberRepository();
         memberService = new MemberService(memberRepository);
     }
+
     @AfterEach
     public void afterEach() {
         memberRepository.clearStore();
@@ -53,6 +55,7 @@ class MemberServiceTest {
         memberService.join(member1);
         IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
 
+        // then
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 /*
         try {
@@ -62,14 +65,5 @@ class MemberServiceTest {
             assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
         }
 */
-        // then
-    }
-
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }

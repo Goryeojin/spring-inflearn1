@@ -30,16 +30,15 @@ public class HelloController {
     }
 
     @GetMapping("hello-string")
-    @ResponseBody
+    @ResponseBody // html 파일이 아닌 hello + name 문자열 그대로 반환
     public String helloString(@RequestParam("name") String name) {
-        return "hello " + name; // "hello spring"
-        // html 파일이 아닌 hello + name 문자열 그대로 반환
+        return "hello " + name;
     }
 
     @GetMapping("hello-api")
     @ResponseBody
     /*
-    @Response 사용 시 HttpMessageConverter가 동작
+    @ResponseBody 사용 시 HttpMessageConverter 가 동작
     기본 문자 처리 : StringHttpMessageConverter
     기본 객체 처리 : MappingJackson2HttpMessageConverter
      */

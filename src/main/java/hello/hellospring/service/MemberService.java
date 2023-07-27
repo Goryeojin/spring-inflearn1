@@ -5,6 +5,7 @@ import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class MemberService {
     /**
      * 회원 가입
      */
-    public Long join(Member member) {
+    public Long join(Member member) throws SQLException {
         // 같은 이름이 있는 중복 회원 X
 //        Optional<Member> result = memberRepository.findByName(member.getName());
 //        result.ifPresent(m -> {
